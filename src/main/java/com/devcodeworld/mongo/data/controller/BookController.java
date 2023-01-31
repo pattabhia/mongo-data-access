@@ -2,7 +2,6 @@ package com.devcodeworld.mongo.data.controller;
 
 import com.devcodeworld.mongo.data.model.Book;
 import com.devcodeworld.mongo.data.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,5 +25,10 @@ public class BookController {
     @GetMapping("/findAllBooks")
     public List<Book> findAllBooks() {
         return bookService.findAllBooks();
+    }
+
+    @GetMapping("/findById/{id}")
+    public Book findBookById(@PathVariable Integer id) {
+        return bookService.findById(id);
     }
 }
